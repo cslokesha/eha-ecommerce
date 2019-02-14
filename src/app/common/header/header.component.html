@@ -31,7 +31,7 @@
 						
 							<li class="nav-link" style="padding-right: 35%"><a routerLink="/home"><i class='fas fa-home' style='font-size:48px;color:whitesmoke'></i></a></li>
 								<!-- <li><a routerLink="/account">My Account</a></li> -->
-								<li *ngIf="!info.token; else loggedOut"   class="nav-item">
+								<li *ngIf="!info.token"   class="nav-item">
 								<!-- <div class="dropdown-menu">
 									<option> <a  class="nav-link" routerLink="/login">Login</a> </option>
 									<option> <a  class="nav-link" routerLink="/register">Register</a> </option>
