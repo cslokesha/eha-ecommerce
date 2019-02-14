@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map'
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class GetCatagorysService {
 
   getCategoryNames() {
     let url = 'http://localhost:8086/v1/category/all';
-    let res = this.http.get(url, { headers: this.header }).map(data => {
+    let res = this.http.get(url, { headers: this.header }).pipe(data => {
       // console.log(`#mapdata ${data}`);
       return data;
     });
@@ -77,7 +77,7 @@ export class GetCatagorysService {
     let data = JSON.stringify(this.filterObj);
     // console.log(data);
     let url = 'http://localhost:8086/v1/product/Filter1';
-    let res = this.http.post(url, data, { headers: this.header }).map(data => {
+    let res = this.http.post(url, data, { headers: this.header }).pipe(data => {
       // console.log(`#mapdata ${data}`);
       return data;
     });

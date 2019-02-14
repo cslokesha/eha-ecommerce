@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map'
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class GetProductsService {
     
     // console.log(url1);
  
-    let res = this.http.get(url1 , { headers: this.headers}).map(data => {
+    let res = this.http.get(url1 , { headers: this.headers}).pipe(data => {
           return data;
         })
      return res;
@@ -48,7 +48,7 @@ export class GetProductsService {
     
    
  
-    let res = this.http.get(urlp , { headers: this.headers}).map(data => {
+    let res = this.http.get(urlp , { headers: this.headers}).pipe(data => {
           return data;
         })
      return res;

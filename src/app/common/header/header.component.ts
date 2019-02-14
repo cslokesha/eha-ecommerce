@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetCatagorysService } from '../../get-catagorys.service';
 import { Observable } from 'rxjs';
-import 'rxjs/add/operator/map'
+
 
 // I import Location so that I can query the current path
 import { Location } from '@angular/common';
