@@ -19,7 +19,7 @@ export class GetCatagorysService {
   }
 
   getCategoryNames() {
-    let url = 'http://localhost:8086/v1/category/all';
+    let url = 'https://eha-enterprise.herokuapp.com/v1/category/all';
     let res = this.http.get(url, { headers: this.header }).pipe(data => {
       // console.log(`#mapdata ${data}`);
       return data;
