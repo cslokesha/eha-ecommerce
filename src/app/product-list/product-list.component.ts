@@ -15,7 +15,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProductListComponent implements OnInit {
 
-  private productsObj: any;
+  productsObj: any;
   private catagoryId: any;
 
   private min = 0;
@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
   private selectedColours:any;
   private globalFilteredcategorynames: any;
 
-  private globalFilteredcategorynamesFlag: boolean;
+  globalFilteredcategorynamesFlag: boolean;
 
   catagories = [];
   filteredCatagories = [];

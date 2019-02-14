@@ -12,9 +12,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  private productObj;
+ productObj;
   private productimg;
-  private price;
+   price;
   private productID;
 
 

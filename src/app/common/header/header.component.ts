@@ -16,8 +16,9 @@ import { TokenStorageService } from '../../auth/token-storage.service';
 })
 export class HeaderComponent implements OnInit {
   info: any;
-  private categorynameobj:string;
+   categorynameobj:string;
   private isLoggedIn = true;
+  private loggedOut = true;
 
 
 
