@@ -49,7 +49,7 @@ RouterModule,
     
     HttpModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    
   ],
   providers: [httpInterceptorProviders,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
