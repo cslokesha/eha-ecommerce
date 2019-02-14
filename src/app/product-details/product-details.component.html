@@ -1,0 +1,106 @@
+		<!-- Page Conttent -->
+		<main class="page-content">
+
+      <!-- Product Page Wrapper -->
+      <div class="product-page-wrapper section-padding-bottom-md">
+          <div class="container">
+
+              <!-- Shop Breadcrumb -->
+              <div class="shop-breadcrumb">
+                  <ul>
+                      <li><a href="/">Home</a></li>
+                      <li><a href="javascript:;">Kanchipuram</a></li>
+                      <li>Kanchipura Saree</li>
+                  </ul>
+              </div>
+              <!--// Shop Breadcrumb -->
+
+              <!-- Product Details Inner -->
+              <div class="product-details">
+
+                  <!-- Product Details Left -->
+                  <div class="product-details-left">
+                      <div class="product-details-images slider-navigation-2">
+                          <a >
+                              <img src="{{productimg}}" alt="product image">
+                          </a>
+                         
+                      </div>
+                    
+                  </div>
+                  <!--// Product Details Left -->
+
+                  <!-- Product Details Right -->
+                  <div class="product-details-right">
+                      <h5 class="product-title">Kanchipuram Silk Saree</h5>
+                      
+                      <div class="ratting-stock-availbility">
+                          <div class="ratting-box">
+                              <span class="active"><i class="fa fa-star"></i></span>
+                              <span class="active"><i class="fa fa-star"></i></span>
+                              <span class="active"><i class="fa fa-star"></i></span>
+                              <span class="active"><i class="fa fa-star"></i></span>
+                              <span><i class="fa fa-star"></i></span>
+                          </div>
+                          <span class="stock-available">In stock</span>
+                      </div>
+                      
+                      
+                      
+                      <div class="price-box">
+                          <span class="pricebox-price"><i class="fa fa-rupee"></i> {{price}}</span>
+                      </div>
+<!-- add to cart -->
+                        <div class="product-details-quantity">
+                          <a href="#" class="add-to-cart-button" routerLink = '/cart' (click) = "addToCart(productObj)" >
+                              <span>ADD TO CART</span>
+                          </a>
+                        </div>
+
+                      <div class="product-details-categories">
+                          <span>Categories :</span>
+                          <ul>
+                              <li><a href="javascript:;">Kanchipuram Saree</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <!--// Product Details Right -->
+  
+              </div>
+              <!--// Product Details Inner -->
+              
+              <!-- Product Details Review -->
+              <div class="product-descripton-review">
+
+                  <ul class="nav" id="product-description-review" role="tablist">
+                      <li class="nav-item">
+                          <a class="nav-link active" id="product-description-tab" data-toggle="tab" href="#product-description" role="tab" aria-controls="product-description" aria-selected="true">Product Description</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" id="product-reviews-tab" data-toggle="tab" href="#product-information" role="tab" aria-controls="product-information" aria-selected="false">Product Information</a>
+                      </li>
+                  </ul>
+
+                  <div class="tab-content" id="product-description-review-content">
+                      <div class="tab-pane fade show active" id="product-description" role="tabpanel" aria-labelledby="product-description-tab">
+                          
+                      </div>
+                      <div class="tab-pane fade" id="product-information" role="tabpanel" aria-labelledby="product-reviews-tab">
+                        <div class="product-description">
+                            <p>Color:	Navy Blue</p>
+                            <p>Occasion: Wedding</p>
+                            <p>Material: Silk</p>
+                        </div>
+                      </div>
+                  </div>
+
+              </div>
+              <!--// Product Details Review -->
+
+          </div>
+                                  
+      </div>
+      <!--// Product Page Wrapper -->
+
+</main>
+<!--// Page Conttent -->

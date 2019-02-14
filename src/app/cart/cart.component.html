@@ -1,0 +1,109 @@
+		<!-- Page Conttent -->
+		<main class="page-content">
+
+        <!-- Shopping Cart Area -->
+        <div class="cart-page-area section-padding-xs bg-white">
+          <div class="container">
+            <h3 class="product-title">Shooping Cart</h3>
+            <!-- Cart Products -->
+            <div class="cart-table table-responsive">
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>			
+                    <th colspan="2" class="cart-column-productname" scope="col">PRODUCT</th>
+                    <th class="cart-column-price" scope="col">PRICE</th>
+                    <th class="cart-column-price" scope="col">DISCOUNT</th>
+                    <th class="cart-column-quantity" scope="col">QUANTITY</th>
+                    <th class="cart-column-total" scope="col">TOTAL</th>
+                    <th class="cart-column-remove" scope="col">REMOVE</th>
+                  </tr>
+                </thead>
+                <tbody>
+  
+                  <tr *ngFor = 'let product of productaArr'>
+                    <td>
+                      <a href="javascript:;" class="product-image" routerLink="/product-details/{{product.productId}}">
+                        <img src="{{product.mainImageUrl}}" alt="product image">
+                      </a>
+                    </td>
+                    <td>
+                      <a href="javascript:;" class="product-title">Kanchipuram Silk Saree</a>
+                    </td>
+                    <td><i class="fa fa-rupee"></i> {{product.price }}</td>
+
+                    <td><i ></i> {{product.discount }}%</td>
+                    <td>
+                      <!-- quantity -->
+                      <div >
+
+                          <span style="color:blue">   {{product.quantity}}  </span> 
+                          <button (click) = "incriment(product.productId)" class="btn-primary" style="margin: 6px" > + </button>
+                          
+                          <button (click) = "decrement(product.productId)" class="btn-warning"> - </button>
+                           
+
+                       </div>     
+                    </td>
+                    <td>
+                      <span class="total-price"> {{product.cp | number:'1.0-2' }} </span>
+                    </td>
+                    <td>
+                      <!-- remove button -->
+                      <button (click) = "remove(product.productId)"  class="remove-product"><i class="fa fa-remove"></i></button>
+                    </td>
+                  </tr>
+  
+                </tbody>
+              </table>
+            </div>
+            <!--// Cart Products -->
+  
+            <!-- Cart Content -->
+            <div class="cart-content">
+              <div class="row justify-content-between">
+                <div class="col-lg-6 col-md-6 col-12">
+                  <div class="cart-content-left">
+                    <div class="button-group">
+                      <!-- <button class="sn-button sn-button-transparent">
+                        <span>UPDATE CART</span>
+                      </button> -->
+                      <button class="sn-button sn-button-dark">
+                        <span><a routerLink="/home">CONTINUE SHOPPING</a></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                  <div class="cart-content-right">
+                    <h2>CART TOTAL</h2>
+                    <table class="cart-pricing-table">
+                      <tbody>
+                        <tr class="cart-subtotal">
+                          <!-- <th>SUBTOTAL</th>
+                          <td><i class="fa fa-rupee"></i> 715.00</td>
+                        </tr>
+                        <tr class="cart-shipping">
+                          <th>SHIPPING</th>
+                          <td><i class="fa fa-rupee"></i> 7.00</td>
+                        </tr> -->
+                        <tr class="cart-total">
+                          <th>Total</th>
+                          <td><i class="fa fa-rupee"></i>{{ cartTotal  | number:'1.0-2'  }}</td>
+                        </tr>?
+                      </tbody>
+                    </table>
+                    <a href="#" class="add-to-cart-button sn-button-lg">
+                      <span>Proceed to Checkout</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--// Cart Content -->
+  
+          </div>
+        </div>
+        <!--// Shopping Cart Area -->
+  
+      </main>
+      <!--// Page Conttent -->

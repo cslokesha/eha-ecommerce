@@ -1,0 +1,157 @@
+		<!-- Header -->
+		<header class="header sticky-header">
+
+			<!-- Header Top Area -->
+			<div class="header-top-area">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6 col-md-6 col-12">
+							
+							<form action="#" class="header-top-left">
+								<div class="language-selection">
+									<label for="language-selection">Language:</label>
+									<select name="language-selection" id="language-selection">
+										<option value="1">English</option>
+										<option value="2">Spanish</option>
+										<option value="3">Hindi</option>
+									</select>
+								</div>
+								<div class="currency-selection">
+									<label for="currency-selection">Currency:</label>
+									<select name="currency-selection" id="currency-selection">
+										<option value="1">INR</option>
+										<option value="2">Singapore Dollar</option>
+										<option value="3">Newzeland Dollar</option>
+									</select>
+								</div>
+							</form>
+						</div>
+						<div class="col-lg-6 col-md-6 col-12">
+							<ul class="header-top-right">
+						
+							<li class="nav-link" style="padding-right: 35%"><a routerLink="/home"><i class='fas fa-home' style='font-size:48px;color:whitesmoke'></i></a></li>
+								<!-- <li><a routerLink="/account">My Account</a></li> -->
+								<li *ngIf="!info.token; else loggedOut"   class="nav-item">
+								<!-- <div class="dropdown-menu">
+									<option> <a  class="nav-link" routerLink="/login">Login</a> </option>
+									<option> <a  class="nav-link" routerLink="/register">Register</a> </option>
+								</div> -->
+								<div class="dropdown" >
+										<a type="text"  data-toggle="dropdown" style="color:white;">
+										  Login & Register 
+										</a>
+										<div class="dropdown-menu" style="background-color:rgb(48, 34, 34);color:red">
+												<a  class="nav-link" routerLink="/login">Login</a> 
+												<a  class="nav-link" routerLink="/register">Register</a> 
+										  
+										</div>
+									  </div>
+								  </li>
+								  
+								 
+								<li><a routerLink="/cart">Shopping Cart</a></li>
+								<li><a routerLink="/checkout">ContactUs</a></li>
+							
+							<li  *ngIf="info.token; else loggedOut" class="nav-item">
+				
+								<a style="color:white" class="nav-link" (click)="logout()">Logout</a>
+							</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// Header Top Area -->
+
+			<!-- Header Middle Area -->
+			<div class="header-middle-area cr-border cr-border-bottom">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-4 col-12">
+							<form class="header-search">
+								<input type="text" placeholder="Search product...">
+								<button type="submit"><i class="fa fa-search"></i></button>
+							</form>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-7 col-12">
+							<div class="header-logo">
+								<a routerLink="/home">
+									<img src="assets/img/logo/logo-1.png" alt="logo">
+								</a>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-5 col-12">
+							<div class="header-cart-wrap">
+							<div class="header-cart">
+								<a routerLink="/cart" class="header-cart-button"><i class="fa fa-shopping-cart"></i> MY CART: (0)</a>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// Header Middle Area -->
+
+			<!-- Header Bottom Area -->
+			<div class="header-bottom-area d-none d-lg-block">
+				<div class="container">
+					<div class="header-bottom-inner">
+						<nav class="sn-navigation">
+							<ul>
+								<!-- <li><a href="javascript:;">New Arrivals</a>
+								</li> -->
+								<li><a href="javascript:;">All Sarees</a>
+									<ul>
+										<li *ngFor = 'let arr of categorynameobj'><a  routerLink="/product-list/{{arr.categoryId}}" >{{arr.categoryName}}</a></li>
+										
+									</ul>
+								</li>
+								<!-- <li><a href="javascript:;">All Sarees</a>
+									<ul>
+										<li><a href="javascript:;">Kanchipuram</a></li>
+										<li><a href="javascript:;">Mysore Silks</a></li>
+										<li><a href="javascript:;">Wedding Collections</a></li>
+										<li><a href="javascript:;">Cotton Sarees</a></li>
+										<li><a href="javascript:;">Printed Sarees</a></li>
+									</ul>
+								</li> -->
+								<li class="megamenu-active"><a href="#">Design Your Saree</a>
+								</li>
+								<li><a href="javascript:;">Gift Vouchers</a></li>
+							</ul>
+						</nav>
+						<div class="header-bottom-social">
+							<span>Follow Us On:</span>
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-rss"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// Header Bottom Area -->
+
+			<!-- Header Mobile Menu -->
+			<div class="mobile-menu-area d-block d-lg-none">
+				<div class="container">
+					<div class="mobile-menu clearfix">
+						<div class="header-bottom-social">
+							<span>Follow Us On:</span>
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-rss"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--// Header Mobile Menu -->
+			
+
+			
+
+		</header>
+		<!--// Header -->
