@@ -6,15 +6,15 @@ import { RegisterComponent } from './register/register.component';
 // import { VliadationComponent } from './vliadation/vliadation.component';
 // import { CartserviceService } from './cartservice.service';
 import { Injectable,OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 // import{AlertService} from '../app/alert.service';
-import { Observable } from 'rxjs/Observable';   
+   
 import 'rxjs/add/operator/map'; 
 import 'rxjs/add/operator/catch'; 
 import 'rxjs/add/observable/throw'; 
-import {ToastrService} from 'ngx-toastr';
+
 import {Subject} from 'rxjs'
 import {debounceTime} from 'rxjs/operators'
 
@@ -30,7 +30,7 @@ export class RegisterService {
   private headers = new Headers({'Content-Type' :'application/json'});
   private options = new RequestOptions({headers: this.headers})
   private userdata=[]; 
-  constructor(private http: Http, private router: Router, private route: ActivatedRoute,private toastrService:ToastrService) { }
+  constructor(private http: Http, private router: Router, private route: ActivatedRoute) { }
 
   public addCustomer=function(data) 
   { 

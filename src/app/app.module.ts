@@ -18,7 +18,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { TestcomponentComponent } from './testcomponent/testcomponent.component';
 import { HttpModule } from '@angular/http';
 import {FormGroup,FormBuilder,Validators, FormControl,FormsModule,ReactiveFormsModule} from '@angular/forms'
-import{ToastrModule} from'ngx-toastr';
+
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import{RouterModule} from '@angular/router';
