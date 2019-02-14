@@ -13,7 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductDetailsComponent implements OnInit {
 
  productObj;
-  private productimg;
+  productimg;
    price;
   private productID;
 

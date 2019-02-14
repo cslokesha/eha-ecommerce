@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   info: any;
    categorynameobj:string;
   private isLoggedIn = true;
-  private loggedOut = true;
+  loggedOut = true;
 
 
 
