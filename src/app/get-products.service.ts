@@ -21,7 +21,7 @@ export class GetProductsService {
 
     // let url = "http://localhost:8086/v1/ProductBycategoryId/b8e6f0eb-9f66-4646-bd84-18cf56dabeae";
 
-    let url1 =  "http://localhost:8086/v1/ProductBycategoryId/" + id;
+    let url1 =  "https://eha-enterprise.herokuapp.com/v1/ProductBycategoryId/" + id;
 
     // console.log(url);
     
@@ -41,7 +41,7 @@ export class GetProductsService {
 
     // let urlt = "http://localhost:8086/v1/productbyId/811ddcae-c278-445c-b301-647501845705";
 
-     let urlp =  "http://localhost:8086/v1/productbyId/" + id;
+     let urlp =  "https://eha-enterprise.herokuapp.com/v1/productbyId/" + id;
     
 
     // console.log( ' url is ' + urlp);

@@ -76,7 +76,7 @@ export class GetCatagorysService {
     // console.log(' ##inside getProductsForFilter ');
     let data = JSON.stringify(this.filterObj);
     // console.log(data);
-    let url = 'http://localhost:8086/v1/product/Filter1';
+    let url = 'https://eha-enterprise.herokuapp.com/v1/product/Filter1';
     let res = this.http.post(url, data, { headers: this.header }).pipe(data => {
       // console.log(`#mapdata ${data}`);
       return data;
