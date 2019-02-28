@@ -15,7 +15,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProductListComponent implements OnInit {
 
-  productsObj: any;
+  private productsObj: any;
   private catagoryId: any;
 
   private min = 0;
@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit {
   private selectedColours:any;
   private globalFilteredcategorynames: any;
 
-  globalFilteredcategorynamesFlag: boolean;
+  private globalFilteredcategorynamesFlag: boolean;
 
   catagories = [];
   filteredCatagories = [];
@@ -103,17 +103,18 @@ export class ProductListComponent implements OnInit {
       }
 
     }
-
-    // console.log(this.filteredCatagories);
+    let result = this.filteredCatagories;
+        console.log('this.filteredCatagories')
+     console.log(this.filteredCatagories);
 
     // CHANGE THE LIST OF SELECTED CATAGORY TO STRING
-    let result = '';
-    for (let k = 0; k < this.filteredCatagories.length - 1; k++) {
-      result = result + "'" + this.filteredCatagories[k] + "'" + ',';
-    }
-    result = result + "'" + this.filteredCatagories[this.filteredCatagories.length - 1] + "'";
+    // let result = '';
+    // for (let k = 0; k < this.filteredCatagories.length - 1; k++) {
+    //   result = result + "'" + this.filteredCatagories[k] + "'" + ',';
+    // }
+    // result = result + "'" + this.filteredCatagories[this.filteredCatagories.length - 1] + "'";
 
-    result = result + ''
+    // result = result + ''
 
     // console.log(result);
 
@@ -124,7 +125,7 @@ export class ProductListComponent implements OnInit {
       this.globalFilteredcategorynamesFlag = false;
     else
       this.globalFilteredcategorynamesFlag = true;
-    this.getDataForFilter(result);
+    this.getDataForFilter(this.filteredCatagories);
 
 
   }
@@ -220,8 +221,8 @@ export class ProductListComponent implements OnInit {
 
       this.productsObj = response.data;
 
-      //  console.log( 'this.productsObj');
-      //  console.log( this.productsObj);
+       console.log( 'this.productsObj');
+       console.log( this.productsObj);
 
 
     })
@@ -268,13 +269,13 @@ export class ProductListComponent implements OnInit {
 
      // CHANGE THE LIST OF SELECTED CATAGORY TO STRING
      let result = '';
-     for (let k = 0; k < this.colourFilter.length - 1; k++) {
-       result = result + "'" + this.colourFilter[k] + "'" + ',';
-     }
-     result = result + "'" + this.colourFilter[this.colourFilter.length - 1] + "'";
+    //  for (let k = 0; k < this.colourFilter.length - 1; k++) {
+    //    result = result + "'" + this.colourFilter[k] + "'" + ',';
+    //  }
+    //  result = result + "'" + this.colourFilter[this.colourFilter.length - 1] + "'";
  
-     result = result + ''
-     this.selectedColours = result;
+    //  result = result + ''
+     this.selectedColours = this.colourFilter;
      console.log(result);
 
      

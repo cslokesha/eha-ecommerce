@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { BaseURL } from './conf'
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class GetCatagorysService {
   }
 
   getCategoryNames() {
-    let url = 'https://eha-enterprise.herokuapp.com/v1/category/all';
+    let url = BaseURL + '/v1/category/all';
     let res = this.http.get(url, { headers: this.header }).pipe(data => {
       // console.log(`#mapdata ${data}`);
       return data;
@@ -36,8 +37,12 @@ export class GetCatagorysService {
     blouseLength: 0,
     border: "string",
     borderType: "string",
-    categoryName: "'dharmavaram'",
-    colors: "string",
+    categoryName: [
+        "string"
+    ],
+    colors: [
+      "string"
+    ],
     discount: 0,
     fabricPurity: "string",
     length: 0,
@@ -50,21 +55,23 @@ export class GetCatagorysService {
 
 
 
-  getProductsForFilter(catgoryName = 'string', min = 0, max = 0, discount = 0, colour = 'string') {
-    if (catgoryName == "'undefined'") {
-      this.filterObj.categoryName = 'string';
-    } else {
-      this.filterObj.categoryName = catgoryName;
-    }
+  getProductsForFilter(catgoryName = [], min = 0, max = 0, discount = 0, colour = []) {
+   
+     if (catgoryName == ["undefined"]) {
+       this.filterObj.categoryName = ["string"];
+     } else {
+       this.filterObj.categoryName = catgoryName;
+     }
 
     this.filterObj.min = min;
     this.filterObj.max = max;
     this.filterObj.discount = discount;
-    if (colour == "'undefined'") {
-      this.filterObj.colors = 'string'
-    } else {
-      this.filterObj.colors = colour;
-    }
+  	
+   if (colour == ["undefined"]) {
+      this.filterObj.colors = ["string"];
+     } else {
+       this.filterObj.colors = colour;
+     }
 
     console.log('@@')
     console.log(this.filterObj)
@@ -76,7 +83,7 @@ export class GetCatagorysService {
     // console.log(' ##inside getProductsForFilter ');
     let data = JSON.stringify(this.filterObj);
     // console.log(data);
-    let url = 'https://eha-enterprise.herokuapp.com/v1/product/Filter1';
+    let url = BaseURL + '/v1/product/Filter1';
     let res = this.http.post(url, data, { headers: this.header }).pipe(data => {
       // console.log(`#mapdata ${data}`);
       return data;
