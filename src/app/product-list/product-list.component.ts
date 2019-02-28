@@ -104,7 +104,7 @@ export class ProductListComponent implements OnInit {
 
     }
     let result = this.filteredCatagories;
-        console.log('this.filteredCatagories')
+     console.log(' ## this.filteredCatagories')
      console.log(this.filteredCatagories);
 
     // CHANGE THE LIST OF SELECTED CATAGORY TO STRING
@@ -120,8 +120,10 @@ export class ProductListComponent implements OnInit {
 
     this.globalFilteredcategorynames = result;
 
-    console.log('## ' + this.globalFilteredcategorynames);
-    if (this.globalFilteredcategorynames == "'undefined'")
+    console.log('## globalFilteredcategorynames')
+    console.log(this.globalFilteredcategorynames);
+
+    if (this.globalFilteredcategorynames.length == 0)
       this.globalFilteredcategorynamesFlag = false;
     else
       this.globalFilteredcategorynamesFlag = true;
