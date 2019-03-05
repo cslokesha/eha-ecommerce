@@ -17,11 +17,11 @@ import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { TestcomponentComponent } from './testcomponent/testcomponent.component';
 import { HttpModule } from '@angular/http';
-import {FormGroup,FormBuilder,Validators, FormControl,FormsModule,ReactiveFormsModule} from '@angular/forms'
+import { FormGroup, FormBuilder, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
-import{RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AddressComponent } from './address/address.component';
 @NgModule({
   declarations: [
@@ -45,11 +45,11 @@ import { AddressComponent } from './address/address.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-RouterModule,
-    
+    RouterModule,
+
     HttpModule,
     HttpClientModule,
-    
+
   ],
   providers: [httpInterceptorProviders,
     { provide: LocationStrategy, useClass: HashLocationStrategy },

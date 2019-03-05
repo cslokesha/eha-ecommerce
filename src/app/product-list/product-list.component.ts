@@ -15,17 +15,16 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ProductListComponent implements OnInit {
 
- productsObj: any;
-  private catagoryId: any;
 
-  private min = 0;
+  private catagoryId: any;
+  private min = 1;
   private max = 0;
   private discount = 0;
-  private selectedColours:any;
+  private selectedColours: any;
   private globalFilteredcategorynames: any;
 
+  productsObj: any;
   globalFilteredcategorynamesFlag: boolean;
-
   catagories = [];
   filteredCatagories = [];
   indexes = [];
@@ -33,6 +32,18 @@ export class ProductListComponent implements OnInit {
   categorynameobj = [];
   colours = ['red', 'green', 'blue'];
   colourFilter = [];
+  // PAGINATION 
+  // product frame stores 6 product objects in an array 
+  productAllFrames: any = [];
+  // @view pagination products 
+  frameInDisplay = [];
+  //@view pagination indeix
+  pageIndexes = [];
+
+
+
+
+
 
 
 
@@ -104,8 +115,8 @@ export class ProductListComponent implements OnInit {
 
     }
     let result = this.filteredCatagories;
-     console.log(' ## this.filteredCatagories')
-     console.log(this.filteredCatagories);
+    console.log(' ## this.filteredCatagories')
+    console.log(this.filteredCatagories);
 
     // CHANGE THE LIST OF SELECTED CATAGORY TO STRING
     // let result = '';
@@ -139,10 +150,14 @@ export class ProductListComponent implements OnInit {
     // console.log('# inside  priceFilterChange');
     // console.log(this.max);
     // console.log(this.min);
-    this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames, this.min, this.max , this.discount , this.selectedColours).subscribe((resObj) => {
+    this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames, this.min, this.max, this.discount, this.selectedColours).subscribe((resObj) => {
       let res: any = resObj;
       let response = JSON.parse(res._body);
       this.productsObj = response.data;
+      console.log('## this.productsObj')
+      console.log(this.productsObj);
+      //PAGINATION 
+      this.pagination();
 
 
     });
@@ -157,7 +172,7 @@ export class ProductListComponent implements OnInit {
 
 
 
-    this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames, this.min, this.max , this.discount , this.selectedColours).subscribe(resObj => {
+    this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames, this.min, this.max, this.discount, this.selectedColours).subscribe(resObj => {
       //  console.log('#resObj');
       //  console.log(resObj);
 
@@ -167,6 +182,10 @@ export class ProductListComponent implements OnInit {
       // console.dir(response);
 
       this.productsObj = response.data;
+      console.log('## this.productsObj')
+      console.log(this.productsObj);
+      //PAGINATION 
+      this.pagination();
 
       //  console.log( 'this.productsObj');
       //  console.log( this.productsObj);
@@ -222,9 +241,13 @@ export class ProductListComponent implements OnInit {
       // console.dir(response);
 
       this.productsObj = response.data;
+      console.log('## this.productsObj')
+      console.log(this.productsObj);
+      //PAGINATION 
+      this.pagination();
 
-       console.log( 'this.productsObj');
-       console.log( this.productsObj);
+      console.log('this.productsObj');
+      console.log(this.productsObj);
 
 
     })
@@ -240,10 +263,15 @@ export class ProductListComponent implements OnInit {
     console.log(typeof discount)
 
 
-    this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames, 0, 0 , this.discount , this.selectedColours).subscribe((resObj) => {
+    this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames, 0, 0, this.discount, this.selectedColours).subscribe((resObj) => {
       let res: any = resObj;
       let response = JSON.parse(res._body);
       this.productsObj = response.data;
+
+      console.log('## this.productsObj')
+      console.log(this.productsObj);
+      //PAGINATION 
+      this.pagination();
 
     });
 
@@ -269,20 +297,20 @@ export class ProductListComponent implements OnInit {
 
     console.log(this.colourFilter);
 
-     // CHANGE THE LIST OF SELECTED CATAGORY TO STRING
-     let result = '';
+    // CHANGE THE LIST OF SELECTED CATAGORY TO STRING
+    let result = '';
     //  for (let k = 0; k < this.colourFilter.length - 1; k++) {
     //    result = result + "'" + this.colourFilter[k] + "'" + ',';
     //  }
     //  result = result + "'" + this.colourFilter[this.colourFilter.length - 1] + "'";
- 
+
     //  result = result + ''
-     this.selectedColours = this.colourFilter;
-     console.log(result);
+    this.selectedColours = this.colourFilter;
+    console.log(result);
 
-     
 
-     this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames , 0 , 0 ,this.discount ,this.selectedColours).subscribe(resObj => {
+
+    this.getCatagoryName.getProductsForFilter(this.globalFilteredcategorynames, 0, 0, this.discount, this.selectedColours).subscribe(resObj => {
       //  console.log('#resObj');
       //  console.log(resObj);
 
@@ -292,6 +320,12 @@ export class ProductListComponent implements OnInit {
       // console.dir(response);
 
       this.productsObj = response.data;
+
+      console.log('## this.productsObj')
+      console.log(this.productsObj);
+
+      //PAGINATION 
+      this.pagination();
 
       //  console.log( 'this.productsObj');
       //  console.log( this.productsObj);
@@ -304,21 +338,52 @@ export class ProductListComponent implements OnInit {
 
   checkentry(color) {
     for (let i = 0; i < this.colours.length; i++) {
-        if(color == this.colourFilter[i]){
-          return true;
-        }
+      if (color == this.colourFilter[i]) {
+        return true;
+      }
     }
 
     return false;
   }
 
-  validation = function (data) {
-    console.log(data)
-    this.filterService.priceRange(data);
+  //PAGINATION 
+  //called each time when a productsObj.length value changes 
+  pagination() {
+    debugger
+    console.log('pagination');
+    this.pageIndexes = [];
+    let numberOfFrames = Math.ceil((this.productsObj.length) / 6);
+    let productObjectIndex = 0;
+    let temp = [];
+    for (let i = 0; i < numberOfFrames; i++) {
+      for (let j = 0; j < 6; j++ , productObjectIndex++) {
+        if (this.productsObj[productObjectIndex])
+          temp[j] = this.productsObj[productObjectIndex];
+
+      }
+      this.pageIndexes[i] = i;
+      this.productAllFrames[i] = temp;
+      temp = [];
+      // intialize the first frame to 1 index
+      this.frameInDisplay = this.productAllFrames[0];
+    }
 
 
 
   }
+
+  navigateTonextFrame(index) {
+
+
+    console.log('@navigateTonextFrame ');
+    console.log(index);
+    this.frameInDisplay = this.productAllFrames[index];
+
+  }
+
+
+
+
 
 
 

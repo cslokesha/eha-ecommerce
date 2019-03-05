@@ -31,18 +31,20 @@
                                 <option value="3">Sort By Recent</option>
                             </select>
                         </div>
+                         <!-- pagination inexis -->
 
                         <ul class="shop-toolbar-pagination">
-                            <li class="active"><a href="javascript:;">1</a></li>
+                            <!-- <li class="active"><a href="javascript:;">1</a></li>
                             <li><a href="javascript:;">2</a></li>
                             <li><a href="javascript:;">3</a></li>
-                            <li><a href="javascript:;">→</a></li>
+                            <li><a href="javascript:;">→</a></li> -->
+                            <button  style="padding:0px 10px; color:black" *ngFor =  "let indix of pageIndexes" (click) = 'navigateTonextFrame(indix)'>{{indix}} </button>
                         </ul>
 
                     </div>
                     <div class="row justify-content-center shop-page-products products-wrapper">
                         <!-- add ngfor here -->
-                        <div *ngFor="let p of productsObj" class="col-sm-4" style="float: left;">
+                        <div *ngFor="let p of frameInDisplay" class="col-sm-4" style="float: left;">
 
                             <img src="{{p.mainImageUrl}}" alt="product image" style="width: 210px; height: 280px;">
 
@@ -79,13 +81,22 @@
                                 <option value="3">Sort By Recent</option>
                             </select>
                         </div>
-
+        <!-- pagination inexis -->
                         <ul class="shop-toolbar-pagination">
-                            <li class="active"><a href="javascript:;">1</a></li>
+                            <!-- <li class="active"><a href="javascript:;">1</a></li>
                             <li><a href="javascript:;">2</a></li>
                             <li><a href="javascript:;">3</a></li>
-                            <li><a href="javascript:;">→</a></li>
+                            <li><a href="javascript:;">→</a></li> -->
+
+                            <button style="padding:0px 10px; color: black" *ngFor =  "let indix of pageIndexes" (click) = 'navigateTonextFrame(indix)'>{{indix}} </button>
+                                
+                            
                         </ul>
+
+
+              
+
+
 
                     </div>
                 </div>
