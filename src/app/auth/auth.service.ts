@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { JwtResponse } from './jwt-response';
 import { AuthLoginInfo } from './login-info';
 import { SignUpInfo } from './signup-info';
+import { BaseURL } from '../conf'
 // import { AddressInfo } from './address-info';
 
 const httpOptions = {
@@ -24,9 +25,9 @@ export class AuthService {
 public redirectUrl:String;
 
 
-  private loginUrl = 'http://localhost:8086/v1/signin';
-  private signupUrl = 'http://localhost:8086/v1/add';
-  private addressUrl='http://localhost:8086/api/auth/address/add';
+  private loginUrl =  BaseURL + '/v1/signin';
+  private signupUrl = BaseURL + '/v1/add';
+  private addressUrl= BaseURL + '/api/auth/address/add';
 
   constructor(private http: HttpClient,private router:Router) {
   }

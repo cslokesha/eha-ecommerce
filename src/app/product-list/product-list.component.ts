@@ -349,7 +349,7 @@ export class ProductListComponent implements OnInit {
   //PAGINATION 
   //called each time when a productsObj.length value changes 
   pagination() {
-    debugger
+    
     console.log('pagination');
     this.pageIndexes = [];
     let numberOfFrames = Math.ceil((this.productsObj.length) / 6);

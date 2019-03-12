@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommunicationService } from '../communication-service/communicate-between-service.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,11 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
   productaArr = [];
   cartTotal:number = 0 ;
-  constructor() {
+  noOfProductsinCart: any = 5;
+  constructor(private communicationService : CommunicationService) {
    
    }
 
   ngOnInit() {
+    // cart count implimentation 
+  
+   
   
    this.getSelectedProducts();
    
@@ -23,6 +28,7 @@ export class CartComponent implements OnInit {
     let arrofobj =JSON.parse(sessionStorage.getItem('DB'));
 
     this.productaArr = arrofobj;
+    this.cartCount(this.productaArr);
 
     for(let i = 0; i < this.productaArr.length; i++ ){
      this.cartTotal += this.productaArr[i].cp;
@@ -34,13 +40,13 @@ export class CartComponent implements OnInit {
   }
 
   remove(productId){
-   debugger
+  
     for(let i = 0; i < this.productaArr.length; i++ ){
       if(this.productaArr[i].productId == productId ){
         this.productaArr[i].quantity = 1;
         this.cartTotal = this.cartTotal - this.productaArr[i].cp;
         this.productaArr.splice(i,1);
-        
+        this.cartCount(this.productaArr);
         sessionStorage.setItem('DB', JSON.stringify( this.productaArr));
       }
 
@@ -83,6 +89,11 @@ export class CartComponent implements OnInit {
   }
   }
 
+  // use when cartcount changes 
+  cartCount(obj){
+      this.noOfProductsinCart = obj.length;
+      this.communicationService.sendMessage(this.noOfProductsinCart);
+  }
 
   
 

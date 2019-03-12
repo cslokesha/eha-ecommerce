@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
 // I also import Router so that I can subscribe to events
 import { Router } from '@angular/router';
 import { TokenStorageService } from '../../auth/token-storage.service';
+import { CommunicationService } from 'src/app/communication-service/communicate-between-service.service';
 
 @Component({
   selector: 'app-header',
@@ -19,16 +20,25 @@ export class HeaderComponent implements OnInit {
    categorynameobj:string;
   private isLoggedIn = true;
   loggedOut = true;
+  public noOfItemsInCart = 1 ;
+  public noOfProductsinCart : any = 0;
 
 
 
-  constructor( private getCatagoryName: GetCatagorysService, location: Location,private router: Router,private token: TokenStorageService ) { 
+  constructor(private communicationService : CommunicationService, private getCatagoryName: GetCatagorysService, location: Location,private router: Router,private token: TokenStorageService ) { 
     // router.events.subscribe(data => console.log(data));
 
 
   }
 
   ngOnInit() {
+    // cart count implimentation 
+
+    this.checkcart();
+    this.communicationService.subscribeForMessages().subscribe(data=>{
+      console.log(data);
+      this.noOfProductsinCart = data;
+    })
 
     this.getCatagoryName.getCategoryNames().subscribe((resObj) => {
       // typeof resobj
@@ -65,6 +75,14 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/home'])
     }
 
+    checkcart(){
+
+      if (sessionStorage.getItem('DB') != null){
+        let arrOfObj = JSON.parse(sessionStorage.getItem('DB'));
+        this.noOfProductsinCart = arrOfObj.length;
+      }
+
+    }
 
   
 }
