@@ -7,8 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+
+
 import { AccountComponent } from './account/account.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
@@ -23,14 +23,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule } from '@angular/router';
 import { AddressComponent } from './address/address.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
-    RegisterComponent,
+    
+
     AccountComponent,
     ForgotPasswordComponent,
     ProductDetailsComponent,
@@ -38,7 +39,8 @@ import { AddressComponent } from './address/address.component';
     CartComponent,
     CheckoutComponent,
     TestcomponentComponent,
-    AddressComponent
+    AddressComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

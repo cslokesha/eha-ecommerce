@@ -1,0 +1,12 @@
+.container form input {
+    color: black;
+    width: 50%;
+    display: block;
+
+}
+
+.container {
+    align-items: center;
+    padding: 5% 20%
+ 
+}

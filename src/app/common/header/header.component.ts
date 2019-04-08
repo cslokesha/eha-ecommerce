@@ -67,6 +67,9 @@ export class HeaderComponent implements OnInit {
  
     checkcart(){
 
+
+      
+
       if (sessionStorage.getItem('DB') != null){
         let arrOfObj = JSON.parse(sessionStorage.getItem('DB'));
         this.noOfProductsinCart = arrOfObj.length;
