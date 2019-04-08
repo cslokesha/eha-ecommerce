@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 
 
 // I import Location so that I can query the current path
-import { Location } from '@angular/common';
+import { Location, LocationStrategy } from '@angular/common';
 // I also import Router so that I can subscribe to events
 import { Router } from '@angular/router';
-import { TokenStorageService } from '../../auth/token-storage.service';
+
 import { CommunicationService } from 'src/app/communication-service/communicate-between-service.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
 
 
-  constructor(private communicationService : CommunicationService, private getCatagoryName: GetCatagorysService, location: Location,private router: Router,private token: TokenStorageService ) { 
+  constructor(private communicationService : CommunicationService, private getCatagoryName: GetCatagorysService, location: LocationStrategy ) { 
     // router.events.subscribe(data => console.log(data));
 
 
@@ -59,22 +59,12 @@ export class HeaderComponent implements OnInit {
 
      
     });
-    this.info = {
-      token: this.token.getToken(),
-    //   username: this.token.getUsername(),
-      
-    //   authorities: this.token.getAuthorities()
-   };
+ 
 
   }
 
   
-  logout() {
-    this.token.signOut();
-    window.location.reload();
-    this.router.navigate(['/home'])
-    }
-
+ 
     checkcart(){
 
       if (sessionStorage.getItem('DB') != null){

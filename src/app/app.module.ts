@@ -20,7 +20,7 @@ import { HttpModule } from '@angular/http';
 import { FormGroup, FormBuilder, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { HttpClientModule } from '@angular/common/http';
-import { httpInterceptorProviders } from './auth/auth-interceptor';
+
 import { RouterModule } from '@angular/router';
 import { AddressComponent } from './address/address.component';
 @NgModule({
@@ -51,7 +51,7 @@ import { AddressComponent } from './address/address.component';
     HttpClientModule,
 
   ],
-  providers: [httpInterceptorProviders,
+  providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
