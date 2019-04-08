@@ -1,6 +1,6 @@
 
 import { Injectable } from '@angular/core';
-import { RegisterComponent } from './register/register.component';
+
 
 
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
