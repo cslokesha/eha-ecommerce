@@ -1,0 +1,22 @@
+
+
+<div class="container">
+
+  <form ngForm (ngSubmit) = "login(frm.value)" #frm =  "ngForm">
+
+    <label for="email"> Email </label>
+    <input type="email" ngModel placeholder="email" name="email" style="color: blue">
+
+    <label for="password"> Password </label>
+    <input type="password" ngModel placeholder="password" name="password" style="color: blue" >
+
+    <br >  
+    <input type="submit" style="color:cadetblue">
+
+  </form>
+
+    <p>NOT REGISTERED</p>
+    <h2>  <a routerLink = "/register"> Rigister</a></h2>
+    
+
+</div>
