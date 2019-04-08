@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { AddressComponent } from './address/address.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -11,13 +12,15 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   {path :'register',  component :RegisterComponent},
   { path: 'address', component: AddressComponent },
+  {path:'login',component:LoginComponent},
 
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'account', component: AccountComponent },

@@ -56,9 +56,7 @@ export class HeaderComponent implements OnInit {
       this.categorynameobj = response.data;
      // let response = JSON.parse(resObj._body);
 
-
-     
-    });
+});
  
 
   }
