@@ -83,6 +83,7 @@ export class ProductDetailsComponent implements OnInit {
 
 
       let arrOfObj = JSON.parse(sessionStorage.getItem('DB'));
+console.log(arrOfObj);
 
 
       const temp = JSON.parse(JSON.stringify(arrOfObj));

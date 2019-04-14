@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommunicationService } from '../communication-service/communicate-between-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +11,17 @@ export class CartComponent implements OnInit {
   productaArr = [];
   cartTotal:number = 0 ;
   noOfProductsinCart: any = 5;
-  constructor(private communicationService : CommunicationService) {
+  constructor(private communicationService : CommunicationService,private router:Router) {
    
+   }
+   add(){
+     console.log(sessionStorage)
+     if(sessionStorage.logincustomer==null){
+this.router.navigate(['/login'])
+}
+else{
+  this.router.navigate(['/address'])
+}
    }
 
   ngOnInit() {

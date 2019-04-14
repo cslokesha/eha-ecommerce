@@ -1,22 +1,49 @@
 
-
-<div class="container">
+<a class="alert alert-success" *ngIf="loginstatus" style="margin-left: 18cm;top: 1cm" >Login Successfully</a>
+<a class="alert alert-success" *ngIf="errorstatus" style="margin-left: 13cm;top: 1cm" >login Failed</a>
+<div class="container" style="margin-left: 10cm">
 
   <form ngForm (ngSubmit) = "login(frm.value)" #frm =  "ngForm">
+    <div class="form-group">
+      <label for="">email</label>
+      <input type="email" name="email"  #em="ngModel" pattern="[a-z0-9.]+@[a-z0-9.-]+\.[a-z]{2,3}$"  class="form-control" ngModel required >
+      </div>
+      <div style="color: red"  *ngIf="em?.touched ">
+          <div *ngIf="em.errors?.required" style="width: 3cm" >
+        email is required
+          </div>
+          <div *ngIf="em.errors?.pattern">
+              enter valid email
+                </div>
+      </div>
 
-    <label for="email"> Email </label>
-    <input type="email" ngModel placeholder="email" name="email" style="color: blue">
-
-    <label for="password"> Password </label>
-    <input type="password" ngModel placeholder="password" name="password" style="color: blue" >
-
+    <div class="form-group">
+      <label for="">password</label>
+      <input type="password" name="password" #phon="ngModel" pattern="[0-9]*" #phon="ngModel" minlength="7" maxlength="8" class="form-control" ngModel required >
+      </div>
+      
+      <div style="color: red" *ngIf="phon?.touched ">
+          <div *ngIf="phon.errors?.required">
+        password is required
+          </div>
+          <div *ngIf="phon.errors?.pattern">
+              password must be number
+                </div>
+                <div *ngIf="phon.errors?.minlength">
+                    enter 8 digit number 
+                      </div>
+      </div>
     <br >  
-    <input type="submit" style="color:cadetblue">
+  
+    <button type="submit"  class="btn btn-success" [disabled]="frm.invalid">submit</button>
 
   </form>
 
-    <p>NOT REGISTERED</p>
-    <h2>  <a routerLink = "/register"> Rigister</a></h2>
-    
+    <p>NOT REGISTERED??</p>
+    <h2>  <a routerLink = "/register" > Register</a></h2>
+   
+    <!-- <app-temp></app-temp>
+    <app-testcomponent></app-testcomponent> -->
 
 </div>
+<app-footer></app-footer>

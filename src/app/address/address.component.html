@@ -1,6 +1,6 @@
 <div class="col-lg-4 col-md-4 col-sm-12 mx-auto">
     <div class="login-form-wrapper">
-      <form action="/action_page.php" #form="ngForm"  (ngSubmit)="onSubmit()" class="sn-form sn-form-boxed">
+      <form action="/action_page.php" #form="ngForm"  (ngSubmit)="onSubmit(form.value)" class="sn-form sn-form-boxed">
         <div class="sn-form-inner">
           <div class="single-input">
             <label for="register-form-name">Addressline1</label>
@@ -14,7 +14,31 @@
             <label for="register-form-password">Addressline3</label>
             <input type="text" ngModel name="addressline3" >
           </div>
-         
+          <div class="single-input">
+            <label for="register-form-password">city</label>
+            <input type="text" ngModel name="city" >
+          </div>
+          <div class="single-input">
+            <label for="register-form-password">country</label>
+            <input type="text" ngModel name="country" >
+          </div>
+          <div class="single-input">
+            <label for="register-form-password">fullname</label>
+            <input type="text" ngModel name="fullname" >
+          </div>
+          <div class="single-input">
+            <label for="register-form-password">pincode</label>
+            <input type="text" ngModel name="pincode" >
+          </div>
+          <div class="single-input">
+            <label for="register-form-password">state</label>
+            <input type="text" ngModel name="state" >
+          </div>
+          <div class="single-input">
+            <label for="register-form-password">town</label>
+            <input type="text" ngModel name="town" >
+          </div>
+          <button class="add-to-cart-button sn-button-lg">Add Address</button>
         </div>
       </form>
                 </div>

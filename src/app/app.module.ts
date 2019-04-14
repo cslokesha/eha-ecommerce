@@ -25,6 +25,8 @@ import { RouterModule } from '@angular/router';
 import { AddressComponent } from './address/address.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { TempComponent } from './temp/temp.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import { LoginComponent } from './login/login.component';
     TestcomponentComponent,
     AddressComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    TempComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,

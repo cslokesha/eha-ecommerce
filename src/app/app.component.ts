@@ -1,3 +1,4 @@
+import { ComponentinteractionService } from './componentinteraction.service';
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core'
 
@@ -10,22 +11,14 @@ import { OnInit } from '@angular/core'
 export class AppComponent implements OnInit {
 
   
-    
+      
 
-  constructor(){
+  constructor(private interaction:ComponentinteractionService){
     console.log('##### constructing app component');
   }
 
   ngOnInit(){
-
-    
-    
-  }
-
-  ngOnDestroy(){
-
-
-  }
+   }
 
   
 

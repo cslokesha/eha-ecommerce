@@ -1,3 +1,4 @@
+import { AboutusComponent } from './aboutus/aboutus.component';
 import { LoginComponent } from './login/login.component';
 import { AddressComponent } from './address/address.component';
 import { NgModule } from '@angular/core';
@@ -21,7 +22,7 @@ const routes: Routes = [
   {path :'register',  component :RegisterComponent},
   { path: 'address', component: AddressComponent },
   {path:'login',component:LoginComponent},
-
+  {path:'aboutus',component:AboutusComponent},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'account', component: AccountComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },

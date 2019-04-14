@@ -1,5 +1,3 @@
-// import { FilterService } from './../filter.service';
-
 import { GetCatagorysService } from './../get-catagorys.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';

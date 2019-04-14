@@ -1,6 +1,9 @@
+import { ComponentinteractionService } from './../componentinteraction.service';
+import { HeaderComponent } from './../common/header/header.component';
 import { RegisterComponent } from './../register/register.component';
 import { RegisterServiceService } from './../register.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter} from '@angular/core'; 
+
 
 @Component({
   selector: 'app-login',
@@ -8,10 +11,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+public loginstatus=false;
+public errorstatus=false;
 
-  constructor(private RegisterServiceService:RegisterServiceService) { }
+ 
+  
+  constructor(private RegisterServiceService:RegisterServiceService,private interction:ComponentinteractionService) { }
 
   ngOnInit() {
+   
   }
   loginData = {
     email : "",
@@ -19,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
 login(frm){
-  console.log('inside login method')
+
  
 console.log(frm.email)
 
@@ -30,9 +38,23 @@ console.log(frm.email)
 
   this.RegisterServiceService.logeedin(this.loginData).subscribe(
     (data)=>{
-        console.log('## response')
-        console.log(data);
-    }
+      // console.log(data)
+        sessionStorage.setItem('logincustomer',JSON.stringify(data));
+        let a=sessionStorage.getItem('logincustomer')
+        if(sessionStorage.logincustomer==null){
+          this.errorstatus=true;
+          alert("it is null")
+        }
+        else{
+       
+          this.loginstatus=true;
+       this.interction.sendMessage(this.loginstatus);
+       alert("not null")
+        }
+        }
   );
 }
+
+
+
 }

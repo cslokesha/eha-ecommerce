@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterServiceService } from '../register.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,31 +9,42 @@ import { RegisterServiceService } from '../register.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
-
  registerInfo =  {
     customerName: "",
     email : "",
     password : 0
   }
   
-  constructor(private regService : RegisterServiceService) { }
+  constructor(private regService : RegisterServiceService,private router:Router) { }
 
   ngOnInit() {
   }
 
   register(frm){
-    console.log(frm.controls.email.value);
+  
 
     this.registerInfo.customerName =  frm.controls.username.value;
     this.registerInfo.email = frm.controls.email.value;
     this.registerInfo.password = frm.controls.password.value;
 
-    console.log(this.registerInfo);
+   
     
     this.regService.register(this.registerInfo).subscribe(
       (data) => {
-        console.log(data);
+      let userdata=data;
+
+      if(userdata['status'] == "SUCCESS")  
+      {
+        alert('user register successfully')
+        this.router.navigate(['/login'])
+
+      }
+      else
+      {     
+    alert('this email is already exist')
+      }
+
+
       }
     )
   }

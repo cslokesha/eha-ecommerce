@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ComponentinteractionService } from './../../componentinteraction.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { GetCatagorysService } from '../../get-catagorys.service';
 import { Observable } from 'rxjs';
 
@@ -16,16 +17,25 @@ import { CommunicationService } from 'src/app/communication-service/communicate-
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+
   info: any;
-   categorynameobj:string;
+  categorynameobj: string;
   private isLoggedIn = true;
   loggedOut = true;
-  public noOfItemsInCart = 1 ;
-  public noOfProductsinCart : any = 0;
+  public noOfItemsInCart = 1;
+  public noOfProductsinCart: any = 0;
+  public status: boolean;
+  public isLoggedin = false;
 
 
 
-  constructor(private communicationService : CommunicationService, private getCatagoryName: GetCatagorysService, location: LocationStrategy ) { 
+  constructor(private communicationService: CommunicationService,
+    private getCatagoryName: GetCatagorysService,
+    location: LocationStrategy,
+    private interaction: ComponentinteractionService,
+    private router: Router,
+    private location1 : Location) {
     // router.events.subscribe(data => console.log(data));
 
 
@@ -35,7 +45,7 @@ export class HeaderComponent implements OnInit {
     // cart count implimentation 
 
     this.checkcart();
-    this.communicationService.subscribeForMessages().subscribe(data=>{
+    this.communicationService.subscribeForMessages().subscribe(data => {
       console.log(data);
       this.noOfProductsinCart = data;
     })
@@ -48,32 +58,62 @@ export class HeaderComponent implements OnInit {
       // console.log('-------@@------ resObj')
       // console.dir(resObj);
 
-      let res:any = resObj;
+      let res: any = resObj;
       let response = JSON.parse(res._body);
       // console.log('-------@@------ response')
       // console.dir(response);
 
       this.categorynameobj = response.data;
-     // let response = JSON.parse(resObj._body);
+      // let response = JSON.parse(resObj._body);
 
-});
- 
+    });
+
+
+    this.interaction.loginmessage$.subscribe((message) => {
+      console.log(`login status ${message}`)
+      if (message) {
+        this.isLoggedIn = true;
+        // this.router.navigate(['/home'])
+        this.location1.back();
+      }
+    }
+    );
+
+
+   let logindata =  sessionStorage.getItem('logincustomer');
+    console.log(`##login data ${logindata}`)
+    if(logindata==null)
+    this.isLoggedIn = false;
+
+
+
+  }
+  // add(){
+  //   if(Storage.length==0 && sessionStorage.logincustomer==null){
+
+  //     this.loginstatus=true;
+  //   }
+  //   else{
+  //     this.status=true;
+  //     this.loginstatus=false
+
+  //   }
+  // }
+
+  checkcart() {
+    if (sessionStorage.getItem('DB') != null) {
+      let arrOfObj = JSON.parse(sessionStorage.getItem('DB'));
+      this.noOfProductsinCart = arrOfObj.length;
+    }
 
   }
 
-  
- 
-    checkcart(){
+  Logout() {
+    console.log("executing logout");
+    sessionStorage.clear();
+    this.isLoggedIn = false;
+
+  }
 
 
-      
-
-      if (sessionStorage.getItem('DB') != null){
-        let arrOfObj = JSON.parse(sessionStorage.getItem('DB'));
-        this.noOfProductsinCart = arrOfObj.length;
-      }
-
-    }
-
-  
 }

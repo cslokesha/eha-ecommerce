@@ -12,6 +12,7 @@ export class CommunicationService {
 
    sendMessage(message: string){
       this.subject.next(message);
+     
    }
 
    subscribeForMessages(): Observable<any> {

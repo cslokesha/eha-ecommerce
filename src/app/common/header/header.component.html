@@ -15,7 +15,11 @@
 					<ul class="header-top-right">
 
 						
-						 <li class="nav-link" style="padding-right: 35%"><a class = "btn" href="" routerLink="/login"> LOGIN / REGISTER </a></li> 
+						 <li class="nav-link" style="padding-right: 35%">
+							<a class = "btn" *ngIf="!isLoggedIn" routerLink="/login"> LOGIN / REGISTER </a>
+							<a class = "btn" href="" routerLink="/aboutus">ABOUT US</a>
+							<a *ngIf="isLoggedIn" style="color:white;"  (click)="Logout()">Logout</a>
+						</li> 
 			
 					</ul>
 				</div>
@@ -29,10 +33,10 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-4 col-12">
-					<form class="header-search">
+					<!-- <form class="header-search">
 						<input type="text" placeholder="Search product...">
 						<button type="submit"><i class="fa fa-search"></i></button>
-					</form>
+					</form> -->
 				</div>
 				<div class="col-lg-4 col-md-6 col-sm-7 col-12">
 					<div class="header-logo">

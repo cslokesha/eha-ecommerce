@@ -11,6 +11,7 @@ import { BaseURL } from './conf'
 export class RegisterServiceService {
   url = BaseURL + "/v1/add";
   url1 = BaseURL + "/v1/signin";
+  url2=BaseURL + "/v1/address/add"
   header = new HttpHeaders({ 'Content-Type': 'application/json' });
   constructor(private httpclient: HttpClient) { }
 
@@ -19,8 +20,13 @@ export class RegisterServiceService {
     return this.httpclient.post<Observable>(this.url, data, { headers: this.header });
   }
   logeedin<Observable>(data1) {
+    
     console.log(data1)
     return this.httpclient.post<Observable>(this.url1, data1, { headers: this.header });
 
   }
+  addaddress<Observable>(data){
+    return this.httpclient.post<Observable>(this.url2, data, { headers: this.header });
+  }
+
 }
