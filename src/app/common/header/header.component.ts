@@ -21,12 +21,12 @@ export class HeaderComponent implements OnInit {
 
   info: any;
   categorynameobj: string;
-  private isLoggedIn = true;
+  public isLoggedIn = true;
   loggedOut = true;
   public noOfItemsInCart = 1;
   public noOfProductsinCart: any = 0;
   public status: boolean;
-  public isLoggedin = false;
+  // public isLoggedin = false;
 
 
 
