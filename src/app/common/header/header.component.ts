@@ -64,6 +64,7 @@ export class HeaderComponent implements OnInit {
       // console.dir(response);
 
       this.categorynameobj = response.data;
+      console.log(this.categorynameobj)
       // let response = JSON.parse(resObj._body);
 
     });

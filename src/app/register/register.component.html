@@ -15,19 +15,18 @@
               username must be character
                 </div>
       </div>
-
-    <div class="form-group">
-      <label for="">email</label>
-      <input type="email" name="email"  #em="ngModel" pattern="[a-z0-9.]+@[a-z]+.[a-z]"  class="form-control" ngModel required >
-      </div>
-      <div style="color: red" *ngIf="em?.touched ">
-          <div *ngIf="em.errors?.required">
-        email is required
-          </div>
-          <div *ngIf="em.errors?.pattern">
-              enter valid email
-                </div>
-      </div>
+      <div class="form-group">
+        <label for="">email</label>
+        <input type="email" name="email"  #em="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"  class="form-control" ngModel required >
+        </div>
+        <div  *ngIf="em?.touched ">
+            <div *ngIf="em.errors?.required">
+          character is required
+            </div>
+            <div *ngIf="em.errors?.pattern">
+                character is required
+                  </div>
+        </div>
 
     <div class="form-group">
       <label for="">password</label>

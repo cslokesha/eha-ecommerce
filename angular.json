@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "demo-deploy"
+  "defaultProject": "demo-deploy",
+  "cli": {
+    "warnings": {
+      "typescriptMismatch": false
+    }
+  }
 }

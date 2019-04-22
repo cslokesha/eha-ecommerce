@@ -11,7 +11,10 @@ declare var $;
 })
 export class HomeComponent implements OnInit {
   public temp = "file:///D://eha-user-deployed//src//assets//img//banners//1.jpg";
-  public imagelist = [];
+  
+public d;
+public c;
+
 
   constructor(private bannerservice: BannerService) { }
 
@@ -41,18 +44,15 @@ export class HomeComponent implements OnInit {
 
     this.bannerservice.getall().subscribe((response) => {
 
-      // response.data[0].image[0].imagePath
       let res: any = response;
-      
-      let imagelist = res.data[0].image;
-
-      console.log(imagelist);
-      for (let i = 0; i < imagelist.length; i++) {
-         this.imagelist[i] = imagelist[i].imagePath;
-      }
-      console.log(this.imagelist);
+      this.d=res.data;
+    
     })
 
+  }
+  add(data){
+    console.log(data)
+    alert("hai")
   }
 
 }

@@ -38,9 +38,15 @@ console.log(frm.email)
 
   this.RegisterServiceService.logeedin(this.loginData).subscribe(
     (data)=>{
-      // console.log(data)
+      
         sessionStorage.setItem('logincustomer',JSON.stringify(data));
-        let a=sessionStorage.getItem('logincustomer')
+
+        let seessiondata=sessionStorage.getItem('logincustomer')
+        console.log(seessiondata)
+        var array = JSON.parse(seessiondata);
+       console.log(array[0])
+       console.log(array[1])
+       console.log(array[2])
         if(sessionStorage.logincustomer==null){
           this.errorstatus=true;
           alert("it is null")

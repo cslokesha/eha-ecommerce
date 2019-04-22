@@ -10,7 +10,7 @@ import { ContentType } from '@angular/http/src/enums';
 })
 export class BannerService {
 
-  private url = BaseURL + "/v1/banner/getall";
+  private url = "http://localhost:8080/v1/control/getall";
 
   private testUrl = "http://localhost:8080/v1/banner/getall";
 

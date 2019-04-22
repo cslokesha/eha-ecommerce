@@ -1,3 +1,4 @@
+import { AddressService } from './../address.service';
 import { RegisterServiceService } from './../register.service';
 import { Router } from '@angular/router';
 
@@ -21,8 +22,8 @@ export class AddressComponent implements OnInit {
     state:"",
     town:""
   }
-
-  constructor(private router:Router,private registerServiceService:RegisterServiceService) { }
+public address;
+  constructor(private router:Router,private registerServiceService:RegisterServiceService,private addressService:AddressService) { }
 
   ngOnInit() {
   }
@@ -42,10 +43,17 @@ export class AddressComponent implements OnInit {
 
    
     console.log(this.addressinfo)
-    this.registerServiceService.addaddress(this.addressinfo).subscribe(
+    this.addressService.addaddress(this.addressinfo).subscribe(
       (data) => {
       console.log(data);
-
+     this.address=data
+      if(this.address.status== "SUCCESS")  
+      {
+       this.router.navigate(['/checkout']);
+      }
+else{
+  alert("please enter proper data")
+}
      
 
 

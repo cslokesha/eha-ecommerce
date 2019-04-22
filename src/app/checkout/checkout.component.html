@@ -57,7 +57,7 @@
     <div class="row">
 
       <!-- Billing Details -->
-      <div class="col-lg-6">
+      <!-- <div class="col-lg-6">
 
         <h3 class="small-title">Shipping Details</h3>
         <div class="sn-form">
@@ -113,7 +113,7 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
       <!--// Billing Details -->
 
 
@@ -159,8 +159,14 @@
               </tfoot>
             </table>
           </div>
+          <form #form="ngForm" (ngSubmit)="add(form.value)">
           <div class="payment-method">
 
+            <div class="cash-on-delivery">
+              <input type="radio"  name="mode" value="CashOnDelivery"  ngModel>
+              <label for="checkout-payment-method-1">CashOnDelivery</label>
+              <p><img alt="payment" src="assets/img/others/payment-getway.png"></p>
+            </div>
             <div class="check-payment">
               <input type="radio" name="payment-method" id="checkout-payment-method-1" class="sn-radio" checked="checked">
               <label for="checkout-payment-method-1">Internet Banking</label>
@@ -177,6 +183,7 @@
           <button class="sn-button sn-button-fullwidth mt-30" type="submit">
             <span>Proceed</span>
           </button>
+        </form>
         </div>
       </div>
       <!--// Place Order -->
