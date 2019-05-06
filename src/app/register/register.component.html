@@ -30,21 +30,56 @@
 
     <div class="form-group">
       <label for="">password</label>
-      <input type="password" name="password" #phon="ngModel" pattern="[0-9]*" #phon="ngModel"  maxlength="8" class="form-control" ngModel required >
+      <input type="password" name="password" #phon="ngModel" #password="ngModel" minlength="8"  maxlength="8" class="form-control" ngModel required >
       </div>
       
-      <div style="color: red" *ngIf="phon?.touched ">
-          <div *ngIf="phon.errors?.required">
+      <div style="color: red" *ngIf="password?.touched ">
+          <div *ngIf="password.errors?.required">
         password is required
           </div>
-          <div *ngIf="phon.errors?.pattern">
+          <div *ngIf="password.errors?.pattern">
               password must be number
                 </div>
-                <div *ngIf="phon.errors?.minlength">
+                <div *ngIf="password.errors?.minlength">
                     enter 8 digit number 
                       </div>
       </div>
 
+      <div class="form-group">
+        <label for="">confirm-password</label>
+        <input type="password" name="confirmpassword" appPasswordmatch="password" #confirmpassword="ngModel" minlength="8" maxlength="8" class="form-control" ngModel required >
+        </div>
+        
+        <div  *ngIf="confirmpassword.touched ">
+            
+          <div *ngIf="confirmpassword.errors.required" style="color: red">
+            confirmpassword is required
+              </div>
+              <div *ngIf=" confirmpassword.errors.notEqual" style="color: red">
+                  password and confirmpassword notmatch   
+                    </div>
+              </div>
+
+
+
+                <!-- <div class="form-group">
+                  <label for="">mobilenumber</label>
+                  <input type="text" name="mobilenumber"  #mobilenumber="ngModel" minlength="10" maxlength="10" pattern="[0-9]*" class="form-control" ngModel required >
+                  </div>
+                  
+                  <div  *ngIf="mobilenumber?.touched ">
+                      
+                    <div *ngIf="mobilenumber.errors?.required" style="color: red">
+                      mobilenumber is required
+                        </div>
+                        <div *ngIf="mobilenumber.errors?.pattern">
+                          mobilenumber must be number
+                              </div>
+                              <div *ngIf="mobilenumber.errors?.minlength">
+                                  enter 10 digit number 
+                                    </div>
+                        </div> -->
+              
     <br>
     <input type="submit" class="btn btn-success" placeholder="password" [disabled]="frm.invalid">
 

@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./address.component.css']
 })
 export class AddressComponent implements OnInit {
+  public isadd=false;
   addressinfo =  {
     addressline1: "",
     addressline2: "",
@@ -22,11 +23,49 @@ export class AddressComponent implements OnInit {
     state:"",
     town:""
   }
+  public addressId
 public address;
-  constructor(private router:Router,private registerServiceService:RegisterServiceService,private addressService:AddressService) { }
+public addresslist;
+  constructor(private router:Router,private registerServiceService:RegisterServiceService,private addressService:AddressService) {
+    this.addressService.getaddress().subscribe((data1)=>{
+      let res:any=data1;
+      let response:any=res.data;
+       let r:any=response[0].addressId
+       console.log(r)
+      this.addresslist=response;
+     
+    })
+   }
+   addressadd(){
+this.isadd=true
+   }
+   chooseadd(data){
+  this.addressId=data
+ 
+   }
+
+add(){
+  console.log(this.addressId)
+ sessionStorage.setItem('addressId',this.addressId)
+ this.router.navigate(['/checkout'])
+}
 
   ngOnInit() {
   }
+
+  remove(data){
+this.addressService.removeaddress(data).subscribe((data1)=>{
+  console.log(data)
+  let removeaddress=data1;
+  if(removeaddress=="SUCCESS"){
+    this.addressService.getaddress().subscribe((data)=>{
+      console.log(data)
+    })
+  }
+})
+  }
+
+
   onSubmit(frm){
     console.log(frm.addressline1)
   
@@ -49,7 +88,16 @@ public address;
      this.address=data
       if(this.address.status== "SUCCESS")  
       {
-       this.router.navigate(['/checkout']);
+        this.addressService.getaddress().subscribe((data1)=>{
+          let res:any=data1;
+          let response:any=res.data;
+           let r:any=response[0].addressId
+           console.log(r)
+          this.addresslist=response;
+          this.isadd=false;
+          
+        })
+       
       }
 else{
   alert("please enter proper data")

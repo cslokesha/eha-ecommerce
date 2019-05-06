@@ -19,10 +19,10 @@ import { RegisterComponent } from './register/register.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  {path :'register',  component :RegisterComponent},
+  { path: 'register', component: RegisterComponent },
   { path: 'address', component: AddressComponent },
-  {path:'login',component:LoginComponent},
-  {path:'aboutus',component:AboutusComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'aboutus', component: AboutusComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'account', component: AccountComponent },
   { path: 'product-details/:id', component: ProductDetailsComponent },
@@ -32,7 +32,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule]
 })
 

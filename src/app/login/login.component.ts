@@ -39,23 +39,21 @@ console.log(frm.email)
   this.RegisterServiceService.logeedin(this.loginData).subscribe(
     (data)=>{
       
-        sessionStorage.setItem('logincustomer',JSON.stringify(data));
+        sessionStorage.setItem('logincustomer',JSON.stringify(data))
 
-        let seessiondata=sessionStorage.getItem('logincustomer')
-        console.log(seessiondata)
-        var array = JSON.parse(seessiondata);
-       console.log(array[0])
-       console.log(array[1])
-       console.log(array[2])
-        if(sessionStorage.logincustomer==null){
+     let  logindata =  sessionStorage.getItem('logincustomer');
+  let array = JSON.parse(logindata);
+
+
+        if(array.jwt==null){
           this.errorstatus=true;
-          alert("it is null")
+          alert("invalid username/password")
         }
         else{
        
           this.loginstatus=true;
        this.interction.sendMessage(this.loginstatus);
-       alert("not null")
+       alert("user login successfully")
         }
         }
   );

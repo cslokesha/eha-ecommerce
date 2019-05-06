@@ -1,12 +1,12 @@
 
-<!-- Page Conttent -->
+
 		<main class="page-content">
 
-        <!-- Shopping Cart Area -->
+        
         <div class="cart-page-area section-padding-xs bg-white">
           <div class="container">
             <h3 class="product-title">Shooping Cart</h3>
-            <!-- Cart Products -->
+           
             <div class="cart-table table-responsive">
               <table class="table table-bordered table-hover">
                 <thead>
@@ -34,7 +34,7 @@
 
                     <td><i ></i> {{product.discount }}%</td>
                     <td>
-                      <!-- quantity -->
+                    
                       <div >
 
                           <span style="color:blue">   {{product.quantity}}  </span> 
@@ -49,7 +49,7 @@
                       <span class="total-price"> {{product.cp | number:'1.0-2' }} </span>
                     </td>
                     <td>
-                      <!-- remove button -->
+                      
                       <button (click) = "remove(product.productId)"  class="remove-product"><i class="fa fa-remove"></i></button>
                     </td>
                   </tr>
@@ -57,19 +57,14 @@
                 </tbody>
               </table>
             </div>
-            <!--// Cart Products -->
-  
-            <!-- Cart Content -->
+          
             <div class="cart-content">
               <div class="row justify-content-between">
                 <div class="col-lg-6 col-md-6 col-12">
                   <div class="cart-content-left">
                     <div class="button-group">
-                      <!-- <button class="sn-button sn-button-transparent">
-                        <span>UPDATE CART</span>
-                      </button> -->
-                      <button class="sn-button sn-button-dark">
-                        <span><a routerLink="/product-list/:id">CONTINUE SHOPPING</a></span>
+                     <button class="sn-button sn-button-dark">
+                        <span><button (click) ="continueShopping()">CONTINUE SHOPPING</button></span>
                       </button>
                     </div>
                   </div>
@@ -80,33 +75,19 @@
                     <table class="cart-pricing-table">
                       <tbody>
                         <tr class="cart-subtotal">
-                          <!-- <th>SUBTOTAL</th>
-                          <td><i class="fa fa-rupee"></i> 715.00</td>
-                        </tr>
-                        <tr class="cart-shipping">
-                          <th>SHIPPING</th>
-                          <td><i class="fa fa-rupee"></i> 7.00</td>
-                        </tr> -->
                         <tr class="cart-total">
                           <th>Total</th>
                           <td><i class="fa fa-rupee"></i>{{ cartTotal  | number:'1.0-2'  }}</td>
                         </tr>
                       </tbody>
                     </table>
-                    <!-- <a href="#" class="add-to-cart-button sn-button-lg">
-                      <span>Proceed to Checkout</span>
-                    </a> -->
                     <button class="add-to-cart-button sn-button-lg" (click)="cartadd()">Proceed to Checkout</button>
                   </div>
                 </div>
               </div>
             </div>
-            <!--// Cart Content -->
-  
-          </div>
+           </div>
         </div>
-        <!--// Shopping Cart Area -->
-  
       </main>
-      <!--// Page Conttent -->
+    
      

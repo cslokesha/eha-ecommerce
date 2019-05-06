@@ -371,14 +371,16 @@ export class ProductListComponent implements OnInit {
   }
 
   navigateTonextFrame(index) {
-
-
     console.log('@navigateTonextFrame ');
     console.log(index);
     this.frameInDisplay = this.productAllFrames[index];
-
   }
 
+  prodSelect(productId){
+ 
+    this.router.navigate(['/product-details', productId , {catagoryID : this.catagoryId}]);
+   
+  }
 
 
 

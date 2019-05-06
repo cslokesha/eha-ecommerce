@@ -1,45 +1,66 @@
-<div class="col-lg-4 col-md-4 col-sm-12 mx-auto">
+ <div  class="addaddress" style="display: inline-flex">
+
+      
+
+   <div  class="adress" *ngFor="let address of addresslist" style="border: 1px solid darkblue;width: 5cm;height: 5cm;margin-top: 2cm;margin-left: 2cm">
+
+    <input type="radio"  (click)="chooseadd(address.addressId)">
+<ul style="list-style-type:none;">
+
+   <li>  {{address.state}}</li>
+  <li> {{address.pincode}}</li>
+  <li>{{address.city}}</li>
+    
+  <li> {{address.country}}</li>  
+    </ul>
+    <span class="addaddress"  >
+        <button style="color: darkblue" (click)="remove(address.addressId)">Remove</button><span> <button  style="color: darkblue">Change</button></span>
+       
+      
+    </span>
+            
+
+    </div>  
+
+    <div  class="addaddress" style="margin-left: 3cm;margin-top: 6cm" >
+      <button (click)="addressadd()" style="color: darkblue">AddNewAddress</button>
+      <button (click)="add(inp)" style="color: darkblue">place order</button>
+    
+    </div>
+          
+      
+ </div>
+ <div class="col-lg-8 col-md-8 col-sm-12 mx-auto" *ngIf="isadd">
     <div class="login-form-wrapper">
-      <form action="/action_page.php" #form="ngForm"  (ngSubmit)="onSubmit(form.value)" class="sn-form sn-form-boxed">
+      <form action="/action_page.php" #form="ngForm"   (ngSubmit)="onSubmit(form.value)" class="sn-form sn-form-boxed">
         <div class="sn-form-inner">
           <div class="single-input">
-            <label for="register-form-name">Addressline1</label>
+            <label for="register-form-name">Street address</label>
             <input type="text" ngModel name="addressline1">
           </div>
-          <div class="single-input">
-            <label for="register-form-email">Addressline2</label>
-            <input type="text" ngModel name="addressline2" >
-          </div>
-          <div class="single-input">
-            <label for="register-form-password">Addressline3</label>
-            <input type="text" ngModel name="addressline3" >
-          </div>
+         
+         
           <div class="single-input">
             <label for="register-form-password">city</label>
             <input type="text" ngModel name="city" >
-          </div>
-          <div class="single-input">
-            <label for="register-form-password">country</label>
-            <input type="text" ngModel name="country" >
-          </div>
-          <div class="single-input">
-            <label for="register-form-password">fullname</label>
-            <input type="text" ngModel name="fullname" >
-          </div>
-          <div class="single-input">
-            <label for="register-form-password">pincode</label>
-            <input type="text" ngModel name="pincode" >
           </div>
           <div class="single-input">
             <label for="register-form-password">state</label>
             <input type="text" ngModel name="state" >
           </div>
           <div class="single-input">
-            <label for="register-form-password">town</label>
-            <input type="text" ngModel name="town" >
+            <label for="register-form-password">pincode</label>
+            <input type="text" ngModel name="pincode" >
+          </div>
+          <div class="single-input">
+            <label for="register-form-password">country</label>
+            <input type="text" ngModel name="country" >
           </div>
           <button class="add-to-cart-button sn-button-lg">Add Address</button>
+          
         </div>
       </form>
+
+   
                 </div>
-              </div>
+              </div> 

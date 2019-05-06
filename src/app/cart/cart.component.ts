@@ -1,9 +1,9 @@
-import { products } from './../products';
+
 import { CartItemService } from './../cart-item.service';
 import { Component, OnInit } from '@angular/core';
 import { CommunicationService } from '../communication-service/communicate-between-service.service';
-import { Router } from '@angular/router';
-import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart',
@@ -15,76 +15,51 @@ export class CartComponent implements OnInit {
   cartTotal: number = 0;
   noOfProductsinCart: any = 5;
   public data;
-products:object
-  
-productlist=[
-  {
-    "quantity": 2,
-    "sku": "12"
-  },
-  {
-    "quantity": 2,
-    "sku": "123"
-  }
-]
-  
-  constructor(private communicationService: CommunicationService, private router: Router, private cartitem: CartItemService) {
-  
-  }
+  products: object
+  public productslist;
+  productlist = [
+    {
+      "quantity": 2,
+      "sku": "12"
+    },
+    {
+      "quantity": 2,
+      "sku": "123"
+    }
+  ]
+
+  constructor(
+    private communicationService: CommunicationService,
+    private router: Router,
+    private activatedRoute : ActivatedRoute,
+    private cartitem: CartItemService) { }
 
   cartadd() {
-    // debugger
+
     let sessiondata = JSON.parse(sessionStorage.getItem('DB'));
-    let seessiondata1=sessionStorage.getItem('logincustomer')
-    console.log(seessiondata1)
-    if(seessiondata1==null){
+    console.log(sessiondata)
+    let seessiondata1 = sessionStorage.getItem('logincustomer')
+    if (seessiondata1 == null) {
       this.router.navigate(['/login'])
     }
-    else{
-    this.cartitem.addcartItem(sessiondata).subscribe((data)=>{
-      console.log(data)
+    else {
       this.router.navigate(['/address'])
-    })
-
-    
-  }
-
-
-       
- 
-
-
-
-
-  // console.log(sessionStorage.length)
-//     if (sessionStorage.logincustomer == null) {
-//       this.router.navigate(['/login'])
-//       let sessiondata = JSON.parse(sessionStorage.getItem('DB'));
-//       for(var i=0;i<sessionStorage.length;i++){
-//       this.obj.sku=sessiondata[i].sku;
-//       this.obj.quantity=sessiondata[i].quantity;
-      
-//  }
-
-//     }
-    // else {
-    //   this.router.navigate(['/address'])
-    // }
+      this.cartitem.addcartItem(sessiondata).subscribe((data) => {
+        console.log(data)
+      })
+    }
   }
 
   ngOnInit() {
     // cart count implimentation 
-
-
-
     this.getSelectedProducts();
-
   }
 
   getSelectedProducts() {
 
     let arrofobj = JSON.parse(sessionStorage.getItem('DB'));
-
+    this.productslist = arrofobj;
+    console.log(this.productslist)
     this.productaArr = arrofobj;
     this.cartCount(this.productaArr);
 
@@ -150,6 +125,13 @@ productlist=[
     this.communicationService.sendMessage(this.noOfProductsinCart);
   }
 
+  continueShopping(){
+  debugger
+   let catagoryID =  this.activatedRoute.snapshot.paramMap.get('catagoryIDtocart');
+
+  //  product-list/:id'
+   this.router.navigate(['/product-list' , catagoryID])
+  }
 
 
 }

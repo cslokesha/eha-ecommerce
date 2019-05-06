@@ -11,14 +11,26 @@ declare var $;
 })
 export class HomeComponent implements OnInit {
   public temp = "file:///D://eha-user-deployed//src//assets//img//banners//1.jpg";
-  
-public d;
-public c;
+
+  public bannerList = [{}];
 
 
-  constructor(private bannerservice: BannerService) { }
+  constructor(private bannerservice: BannerService) {
+    console.log(`##creating HomeComponent in @constructor`);
+   }
 
   ngOnInit() {
+    this.bannerservice.getall().subscribe((response) => {
+    
+      let res: any = response;
+      let d: any = res.data;
+      this.bannerList = d;
+      console.log(d);
+      console.log(`## banner response ${this.bannerList}`)
+      console.log(this.bannerList);
+      console.log(d[1].categoryDomain.categoryName)
+     
+    })
     $('.banners-masonry-active').imagesLoaded(function () {
 
       $('.banners-masonry-active').masonry({
@@ -41,18 +53,7 @@ public c;
       prevArrow: '<span class="slider-navigation slider-navigation-prev"><i class="fa fa-angle-left"></i></span>',
       nextArrow: '<span class="slider-navigation slider-navigation-next"><i class="fa fa-angle-right"></i></span>',
     });
-
-    this.bannerservice.getall().subscribe((response) => {
-
-      let res: any = response;
-      this.d=res.data;
-    
-    })
-
   }
-  add(data){
-    console.log(data)
-    alert("hai")
-  }
+
 
 }

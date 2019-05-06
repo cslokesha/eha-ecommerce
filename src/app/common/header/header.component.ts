@@ -111,6 +111,7 @@ export class HeaderComponent implements OnInit {
 
   Logout() {
     console.log("executing logout");
+    // sessionStorage.removeItem("logincustomer");
     sessionStorage.clear();
     this.isLoggedIn = false;
 

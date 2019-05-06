@@ -8,7 +8,7 @@ import { BaseURL } from './conf'
 })
 export class CartItemService {
  
-  url = "http://localhost:8080/cartitem/save";
+  url = "http://localhost:8080/v1/cartitem/save";
   logindata =  sessionStorage.getItem('logincustomer');
   array = JSON.parse(this.logindata);
    header = new HttpHeaders( 
@@ -21,7 +21,6 @@ export class CartItemService {
   constructor(private httpclient: HttpClient) { }
 
   addcartItem<Observable>(data) {
- 
     data = JSON.stringify(data)
     return this.httpclient.post<Observable>(this.url, data, { headers: this.header });
   }

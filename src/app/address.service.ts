@@ -14,6 +14,7 @@ export class AddressService {
    
   logindata =  sessionStorage.getItem('logincustomer');
   array = JSON.parse(this.logindata);
+  public userurl="http://localhost:8080/v1/address/getAddressByCustomer/{email}?email="+this.array.email;
     header = new HttpHeaders( 
       {  
         'Content-Type': 'application/json' ,
@@ -25,8 +26,33 @@ export class AddressService {
 
   
   addaddress<Observable>(data){
-    let logindata =  sessionStorage.getItem('logincustomer');
+    // let logindata =  sessionStorage.getItem('logincustomer');
      return this.httpclient.post<Observable>(this.url2, data, { headers: this.header});
   }
 
+  
+  getaddress<Observable>(){
+
+    return this.httpclient.get(this.userurl);
+  }
+  getaddressById<Observable>(){
+ let Id=   sessionStorage.getItem('addressid')
+let  userurl1="http://localhost:8080/v1/address/get/"+Id;
+    return this.httpclient.get(userurl1);
+  }
+  getorders<Observable>(){
+    let Id=   sessionStorage.getItem('addressid')
+   let  userurl2="http://localhost:8080/v1/Orders/getAllOrders";
+       return this.httpclient.get(userurl2);
+     }
+     getone<Observable>(data){
+      let Id=   sessionStorage.getItem('addressid')
+     let  userurl2="http://localhost:8080/v1/Orders/getOrderDetailsByOrderId/{orderId}?orderId="+data;
+         return this.httpclient.get(userurl2);
+       }
+       
+       removeaddress(id:number){
+        return this.httpclient.delete(`http://localhost:8080/v1/address/address/` + id);
+      
+      }
 }

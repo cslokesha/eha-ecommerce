@@ -46,10 +46,10 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-8 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[0].imagePath}} alt="best banner image">
-								<div class="banner-content text-center">
-									<a routerLink="/product-list/{{d[0].categoryDomain.categoryId}}"><h1>{{d[0].categoryDomain.categoryName}}</h1></a>			
+							<a [routerLink]="['/product-list' , bannerList[0].categoryDomain.categoryId ]" class="banner mt-30">
+								<img src={{bannerList[0].imagePath}} alt="best banner image">
+								<div class="banner-content text-center">					
+									<h3>{{bannerList[0].categoryDomain.categoryName}}</h3>
 									<p>Ever since its inception, Kanchipuram silk sarees have stayed true to the inclusion of temple arts</p>
 								</div>
 							</a>	
@@ -58,10 +58,10 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[1].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[1].categoryDomain.categoryId]" class="banner mt-30">
+								<img src={{bannerList[1].imagePath}} alt="best banner image">
 								<div class="banner-content banner-content-2 text-center">					
-										<a routerLink="/product-list/{{d[1].categoryDomain.categoryId}}"><h1>{{d[1].categoryDomain.categoryName}}</h1></a>	
+									<h3>{{bannerList[1].categoryDomain.categoryName}}</h3>
 									<p>Sale away with 58 new styles up 80 % off</p>
 								</div>
 							</a>	
@@ -70,11 +70,11 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[2].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[2].categoryDomain.categoryId ]" class="banner mt-30">
+								<img src={{bannerList[2].imagePath}} alt="best banner image">
 								<div class="banner-content banner-content-2 text-center">					
-										<a routerLink="/product-list/{{d[2].categoryDomain.categoryId}}"><h1>{{d[2].categoryDomain.categoryName}}</h1></a>	
-									<p>Sale away with 58 new styles up 80 % off</p>
+									<h3>{{bannerList[2].categoryDomain.categoryName}}</h3>
+									<p>Make your life more colorful !</p>
 								</div>
 							</a>	
 						</div>
@@ -82,10 +82,10 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[3].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[3].categoryDomain.categoryId]" class="banner mt-30">
+								<img src={{bannerList[3].imagePath}} alt="best banner image">
 								<div class="banner-content banner-content-2 text-center">					
-										<a routerLink="/product-list/{{d[3].categoryDomain.categoryId}}"><h1>{{d[3].categoryDomain.categoryName}}</h1></a>	
+									<h3>{{bannerList[3].categoryDomain.categoryName}}</h3>
 									<p>Spring Collections 2018</p>
 								</div>
 							</a>	
@@ -94,10 +94,10 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[4].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[4].categoryDomain.categoryId]" class="banner mt-30">
+								<img src={{bannerList[4].imagePath}} alt="best banner image">
 								<div class="banner-content banner-content-2 text-center">					
-										<a routerLink="/product-list/{{d[4].categoryDomain.categoryId}}"><h1>{{d[4].categoryDomain.categoryName}}</h1></a>	
+									<h3>{{bannerList[4].categoryDomain.categoryName}}</h3>
 									<p>Get the new look with only</p>
 								</div>
 							</a>	
@@ -106,10 +106,10 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[5].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[5].categoryDomain.categoryId]" class="banner mt-30">
+								<img src={{bannerList[5].imagePath}} alt="best banner image">
 								<div class="banner-content banner-content-2 text-center">					
-										<a routerLink="/product-list/{{d[5].categoryDomain.categoryId}}"><h1>{{d[5].categoryDomain.categoryName}}</h1></a>	
+									<h3>{{bannerList[5].categoryDomain.categoryName}}</h3>
 									<p>Ever since its inception</p>
 								</div>
 							</a>	
@@ -118,11 +118,10 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[6].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[6].categoryDomain.categoryId]" class="banner mt-30">
+								<img src={{bannerList[6].imagePath}} alt="best banner image">
 								<div class="banner-content banner-content-2 text-center">					
-										<a routerLink="/product-list/{{d[6].categoryDomain.categoryId}}">
-											<h1>{{d[6].categoryDomain.categoryName}}</h1></a>	
+									<h3>{{bannerList[6].categoryDomain.categoryName}}</h3>
 									<p>Kanchipuram silk sarees have stayed true to the inclusion of temple arts</p>
 								</div>
 							</a>	
@@ -131,10 +130,10 @@
 
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[8].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[7].categoryDomain.categoryId]" class="banner mt-30">
+								<img src={{bannerList[7].imagePath}} alt="best banner image">
 								<div class="banner-content text-center">					
-										<a routerLink="/product-list/{{d[7].categoryDomain.categoryId}}"><h1>{{d[7].categoryDomain.categoryName}}</h1></a>	
+									<h3>{{bannerList[7].categoryDomain.categoryName}}</h3>
 									<p>Our best beautiful multitakers – 30% OFF</p>
 								</div>
 							</a>	
@@ -143,23 +142,14 @@
 						
 						<!-- Single Banner -->
 						<div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{d[7].imagePath}} alt="best banner image">
+							<a [routerLink]="['/product-list' , bannerList[8].categoryDomain.categoryId]" class="banner mt-30">
+								<img src={{bannerList[8].imagePath}} alt="best banner image">
 								<div class="banner-content banner-content-2 text-center">					
-										<a routerLink="/product-list/{{d[8].categoryDomain.categoryId}}"><h1>{{d[8].categoryDomain.categoryName}}</h1></a>	
+									<h3>{{bannerList[8].categoryDomain.categoryName}}</h3>
 									<p>Spring / Summer 2018</p>
 								</div>
 							</a>	
 						</div>
-						<!-- <div class="col-lg-4 col-md-6 col-12 masonry-item">
-							<a routerLink="/product-list" class="banner mt-30">
-								<img src={{imagelist[9]}} alt="best banner image">
-								<div class="banner-content banner-content-2 text-center">					
-									<h3>Banaras</h3>
-									<p>Spring / Summer 2018</p>
-								</div>
-							</a>	
-						</div> -->
 						<!--// Single Banner -->
 
 					</div>

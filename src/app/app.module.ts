@@ -27,6 +27,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { TempComponent } from './temp/temp.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { PasswordmatchDirective } from './passwordmatch.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     RegisterComponent,
     LoginComponent,
     TempComponent,
-    AboutusComponent
+    AboutusComponent,
+    PasswordmatchDirective
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
     HttpModule,
     HttpClientModule,
 
-  ],
+  ],  
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],

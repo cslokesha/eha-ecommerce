@@ -120,6 +120,7 @@
       <!-- Place Order -->
       <div class="col-lg-6">
         <div class="order-infobox">
+          <div *ngIf="isorder">
           <h3 class="small-title">YOUR ORDER</h3>
           <div class="checkout-table table-responsive">
             <table class="table">
@@ -130,18 +131,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td class="text-left">Kanchipuram Silk Saree <span>× 1</span></td>
-                  <td class="text-right"><i class="fa fa-rupee"></i> 75.00</td>
+                <tr *ngFor="let list of allorders">
+                  <td class="text-left"><img src="{{list.productImagePath}}" ></td>
+                  <td class="text-right"><i class="fa fa-rupee"></i> {{list.productAmount}}</td>
                 </tr>
-                <tr>
-                  <td class="text-left">Kanchipuram Silk Saree <span>× 1</span></td>
-                  <td class="text-right"><i class="fa fa-rupee"></i> 125.00</td>
-                </tr>
-                <tr>
-                  <td class="text-left">Kanchipuram Silk Saree <span>× 1</span></td>
-                  <td class="text-right"><i class="fa fa-rupee"></i> 515.00</td>
-                </tr>
+               
               </tbody>
               <tfoot>
                 <tr>
@@ -150,7 +144,7 @@
                 </tr>
                 <tr>
                   <th class="text-left">SHIPPING</th>
-                  <td class="text-right">Flat Rate: <i class="fa fa-rupee"></i>  7.00</td>
+                  <td class="text-right">Flat Rate: <i class="fa fa-rupee"></i>  Free delivery</td>
                 </tr>
                 <tr class="total-price">
                   <th class="text-left">ORDER TOTAL</th>
@@ -159,25 +153,33 @@
               </tfoot>
             </table>
           </div>
+          </div>
           <form #form="ngForm" (ngSubmit)="add(form.value)">
           <div class="payment-method">
 
             <div class="cash-on-delivery">
-              <input type="radio"  name="mode" value="CashOnDelivery"  ngModel>
+              <input type="radio">
               <label for="checkout-payment-method-1">CashOnDelivery</label>
               <p><img alt="payment" src="assets/img/others/payment-getway.png"></p>
             </div>
+            <div class="cash-on-delivery">
+              <input type="radio"  (change)="payment()">
+              <label for="checkout-payment-method-1">paypal</label>
+              <p><img alt="payment" src="assets/img/others/payment-getway.png"> <button><a href="{{paypal}}" style="color: blue">pay</a></button> </p>
+            </div>
+<!--             
             <div class="check-payment">
               <input type="radio" name="payment-method" id="checkout-payment-method-1" class="sn-radio" checked="checked">
               <label for="checkout-payment-method-1">Internet Banking</label>
               <p><img alt="payment" src="assets/img/others/payment-getway.png"></p>
-            </div>
+            </div> -->
 
-            <div class="paypal-payment">
+            <!-- <div class="paypal-payment">
               <input type="radio" name="payment-method" id="checkout-payment-method-2" class="sn-radio">
               <label for="checkout-payment-method-2">Paypal Payment</label>
               <p><img alt="payment" src="assets/img/others/payment-getway.png"></p>
-            </div>
+              <a href="{{data}}">paypal</a>
+            </div> -->
 
           </div>
           <button class="sn-button sn-button-fullwidth mt-30" type="submit">
@@ -197,3 +199,46 @@
 
 </main>
 <!--// Page Conttent -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
